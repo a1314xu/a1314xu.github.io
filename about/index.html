@@ -82,7 +82,7 @@
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -99,14 +99,17 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="关于">
+  <meta name="description" content="无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。–马尔克斯《百年孤独》">
+<meta property="og:type" content="website">
+<meta property="og:title" content="叹希奇的blog">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="叹希奇的blog">
+<meta property="og:description" content="无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。–马尔克斯《百年孤独》">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-17T05:55:39.344Z">
+<meta property="og:updated_time" content="2018-04-17T06:29:06.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
+<meta name="twitter:title" content="叹希奇的blog">
+<meta name="twitter:description" content="无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。–马尔克斯《百年孤独》">
 
 
 
@@ -123,7 +126,7 @@
   };
 </script>
 
-  <title>关于 | 叹希奇的blog</title>
+  <title> | 叹希奇的blog</title>
   
 
 
@@ -358,7 +361,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">关于</h1>
+<h1 class="post-title" itemprop="name headline"></h1>
 
 <div class="post-meta">
   
@@ -376,7 +379,10 @@
       <div class="post-body">
         
         
-          
+          <blockquote>
+<p>无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。<br>–<cite>马尔克斯《百年孤独》</cite></p>
+</blockquote>
+
         
       </div>
       
@@ -540,7 +546,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -757,7 +763,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
