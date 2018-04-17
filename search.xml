@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTTP缓存总结]]></title>
+    <url>%2F2018%2F04%2F17%2FHTTP%E7%BC%93%E5%AD%98%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[最近由于工作需要，对http缓存做了较为全面的了解。发现目前网络上已经充斥着各种各样相关主题的文章，但是这些文章要么记录比较浅显，要么不是很方便以后阅读查看，于是决定自己写一篇进行整理和备忘。 概述为获取网页内容需要浏览器与服务器之间进行多次通信，这些通信会延迟浏览器获得和处理内容的时间，并对服务器造成巨大的开销。通过缓存可以降低服务器的压力并载提高网页的整体加载速度，这也是前端页面性能优化很重要的一环。浏览器自带了 HTTP 缓存实现，页面的缓存状态是由header决定的，通过请求和响应header来指示浏览器是否缓存和缓存时间。header的参数有四种：Expires，Cache-Control，Last-modified，ETag。大体上说，这些缓存策略分为两种：强缓存(本地缓存)和协商缓存，其中Expires和Cache-Control归为强缓存，Last-modified和ETag归为协商缓存。当有缓存时，浏览器处理流程如下： 浏览器请求某一资源时，会先根据获取缓存的header信息来决定如何加载资源 强缓存判断：根据header中的Cache-Control和Expires来判断强缓存是否过期，若未过期直接读取本地缓存（200(from cache)不发起http请求），否则进入步骤3判断 协商缓存判断：浏览器会向服务器端发送请求，这个请求会携带第一次请求返回的有关缓存的header字段信息， 当存在Etag时。客户端会首先通过If-None-Match头将先前服务器端发送过来的Etag发送给服务器，服务器会对比这个Etag是否与服务器的相同，若相同，就将If-None-Match的值设为false，返回状态304，客户端继续使用本地缓存，不解析服务器端发回来的数据，若不相同就将If-None-Match的值设为true，返回状态为200，客户端重新获取服务器端返回的数据； 当不存在Etag时。客户端还会通过If-Modified-Since头将先前服务器端发过来的最后修改时间戳发送给服务器，服务器端通过这个时间戳判断客户端的页面是否是最新的，如果不是最新的，则返回最新的内容，如果是最新的，则返回304，客户端继续使用本地缓存。 强缓存1、Expires：Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时间（服务器端的具体时间点），由服务器返回，用GMT格式的字符串表示，如：expires:Tue, 17 Apr 2018 09:05:55 GMT。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。 2、Cache-Control：由于Expires是较老的强缓存管理header，在服务器时间与客户端时间相差较大时，缓存管理容易出现问题，比如随意修改下客户端时间，就能影响缓存命中的结果。所以在http1.1的时候，提出了一个新的header，就是Cache-Control，这是一个相对时间，在配置缓存的时候，以秒为单位，用数值表示，如：Cache-Control:max-age=315360000。 协商缓存待续…]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>缓存</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo博客简单流程]]></title>
     <url>%2F2017%2F03%2F20%2Fhexo%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AE%80%E5%8D%95%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
