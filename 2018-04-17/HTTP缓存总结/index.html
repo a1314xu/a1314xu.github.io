@@ -101,20 +101,27 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="叹希奇的blog">
-<meta property="og:url" content="https://a1314xu.github.io/categories/前端/index.html">
+  <meta name="description" content="最近由于工作需要，对http缓存做了较为全面的了解。发现目前网络上已经充斥着各种各样相关主题的文章，但是这些文章要么记录比较浅显，要么不是很方便以后阅读查看，于是决定自己写一篇进行整理和备忘。 概述为获取网页内容需要浏览器与服务器之间进行多次通信，这些通信会延迟浏览器获得和处理内容的时间，并对服务器造成巨大的开销。通过缓存可以降低服务器的压力并载提高网页的整体加载速度，这也是前端页面性能优化很重要">
+<meta name="keywords" content="http,缓存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP缓存总结">
+<meta property="og:url" content="https://a1314xu.github.io/2018-04-17/HTTP缓存总结/index.html">
 <meta property="og:site_name" content="叹希奇的blog">
+<meta property="og:description" content="最近由于工作需要，对http缓存做了较为全面的了解。发现目前网络上已经充斥着各种各样相关主题的文章，但是这些文章要么记录比较浅显，要么不是很方便以后阅读查看，于是决定自己写一篇进行整理和备忘。 概述为获取网页内容需要浏览器与服务器之间进行多次通信，这些通信会延迟浏览器获得和处理内容的时间，并对服务器造成巨大的开销。通过缓存可以降低服务器的压力并载提高网页的整体加载速度，这也是前端页面性能优化很重要">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://oh54fkq1z.bkt.clouddn.com/huancun.png">
+<meta property="og:updated_time" content="2018-04-17T11:28:13.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="叹希奇的blog">
+<meta name="twitter:title" content="HTTP缓存总结">
+<meta name="twitter:description" content="最近由于工作需要，对http缓存做了较为全面的了解。发现目前网络上已经充斥着各种各样相关主题的文章，但是这些文章要么记录比较浅显，要么不是很方便以后阅读查看，于是决定自己写一篇进行整理和备忘。 概述为获取网页内容需要浏览器与服务器之间进行多次通信，这些通信会延迟浏览器获得和处理内容的时间，并对服务器造成巨大的开销。通过缓存可以降低服务器的压力并载提高网页的整体加载速度，这也是前端页面性能优化很重要">
+<meta name="twitter:image" content="http://oh54fkq1z.bkt.clouddn.com/huancun.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://a1314xu.github.io/categories/前端/"/>
+  <link rel="canonical" href="https://a1314xu.github.io/2018-04-17/HTTP缓存总结/"/>
 
 
 
@@ -124,7 +131,7 @@
   };
 </script>
 
-  <title>分类: 前端 | 叹希奇的blog</title>
+  <title>HTTP缓存总结 | 叹希奇的blog</title>
   
 
 
@@ -190,7 +197,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,7 +261,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -282,28 +289,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -352,59 +337,266 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>前端<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://a1314xu.github.io/2018-04-17/HTTP缓存总结/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="叹希奇">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叹希奇的blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018-04-17/HTTP缓存总结/" itemprop="url">
-              
-                <span itemprop="name">HTTP缓存总结</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">HTTP缓存总结
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-17T15:31:17+08:00"
-              content="2018-04-17" >
-          04-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-17 15:31:17" itemprop="dateCreated datePublished" datetime="2018-04-17T15:31:17+08:00">2018-04-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018-04-17/HTTP缓存总结/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018-04-17/HTTP缓存总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018-04-17/HTTP缓存总结/" class="leancloud_visitors" data-flag-title="HTTP缓存总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近由于工作需要，对http缓存做了较为全面的了解。发现目前网络上已经充斥着各种各样相关主题的文章，但是这些文章要么记录比较浅显，要么不是很方便以后阅读查看，于是决定自己写一篇进行整理和备忘。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>为获取网页内容需要浏览器与服务器之间进行多次通信，这些通信会延迟浏览器获得和处理内容的时间，并对服务器造成巨大的开销。通过缓存可以降低服务器的压力并载提高网页的整体加载速度，这也是前端页面性能优化很重要的一环。浏览器自带了 HTTP 缓存实现，页面的缓存状态是由header决定的，通过请求和响应header来指示浏览器是否缓存和缓存时间。header的参数有四种：Expires，Cache-Control，Last-modified，ETag。<br>大体上说，这些缓存策略分为两种：<font color="red">强缓存(本地缓存)和协商缓存</font> ，其中Expires和Cache-Control归为强缓存，Last-modified和ETag归为协商缓存。</p>
+<h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><h3 id="Expires："><a href="#Expires：" class="headerlink" title="Expires："></a>Expires：</h3><p>Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时间（服务器端的具体时间点），由服务器返回，用GMT格式的字符串表示，<br>如：   <code>expires:Tue, 17 Apr 2018 09:05:55 GMT</code>。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。</p>
+<h3 id="Cache-Control："><a href="#Cache-Control：" class="headerlink" title="Cache-Control："></a>Cache-Control：</h3><p>由于Expires是较老的强缓存管理header，在服务器时间与客户端时间相差较大时，缓存管理容易出现问题，比如随意修改下客户端时间，就能影响缓存命中的结果。所以在http1.1的时候，提出了一个新的header，就是Cache-Control，这是一个相对时间，在配置缓存的时候，以秒为单位，用数值表示，如：<code>Cache-Control:max-age=315360000</code>。cache-control常用的设置值如下：</p>
+<ul>
+<li>max-age：缓存的相对时间，单位为秒</li>
+<li>no-cache：不使用本地缓存，但仍然会缓存服务器返回的数据</li>
+<li>no-store：不允许缓存响应，每次请求都必须完整获取</li>
+<li>public：可以被所有的用户缓存。</li>
+<li>private：只能被终端用户的(客户端)浏览器缓存，不允许CDN等中继缓存服务器对其缓存。<br>Cache-Control与Expires可以在服务端配置同时启用，同时启用的时候Cache-Control优先级高。</li>
+</ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><h3 id="Last-Modify和If-Modify-Since："><a href="#Last-Modify和If-Modify-Since：" class="headerlink" title="Last-Modify和If-Modify-Since："></a>Last-Modify和If-Modify-Since：</h3><p>浏览器第一次请求一个资源的时候，服务器返回的header中会加上Last-Modify，Last-modify标识服务器端该资源的最后修改时间，例如 <code>Last-Modify: Thu,31 Dec 2017 23:59:59 GMT</code>。<br>当浏览器再次请求该资源时，request的请求头中会包含If-Modify-Since，该值为缓存之前返回的Last-Modify。向服务器询问Last-Modified时间点之后资源是否被修改过，如果没有修改，则返回304，使用缓存，并且不会返回Last-Modify。如果修改过，则再次去服务器请求资源，返回码和首次请求相同为200，资源为服务器最新资源。</p>
+<h3 id="Etag和If-None-Match"><a href="#Etag和If-None-Match" class="headerlink" title="Etag和If-None-Match"></a>Etag和If-None-Match</h3><p>Etag/If-None-Match返回的是一个校验码。ETag可以保证每一个资源是唯一的，资源变化都会导致ETag变化。服务器根据浏览器上送的If-None-Match值来判断是否命中缓存。<br>与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response header中还会把这个ETag返回，即使这个ETag跟之前的没有变化。<br>Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。</p>
+<h2 id="缓存处理流程"><a href="#缓存处理流程" class="headerlink" title="缓存处理流程"></a>缓存处理流程</h2><p>当有缓存时，浏览器处理流程如下：</p>
+<ol>
+<li>浏览器请求某一资源时，会先根据获取缓存的header信息来决定如何加载资源</li>
+<li>强缓存判断：根据header中的Cache-Control和Expires来判断强缓存是否过期，若未过期直接读取本地缓存（200(from cache)不发起http请求），否则进入步骤3判断</li>
+<li>协商缓存判断：浏览器会向服务器端发送请求，这个请求会携带第一次请求返回的有关缓存的header字段信息，<ol>
+<li>当存在Etag时。客户端会首先通过If-None-Match头将先前服务器端发送过来的Etag发送给服务器，服务器会对比这个Etag是否与服务器的相同，若相同，就将If-None-Match的值设为false，返回状态304，客户端继续使用本地缓存，不解析服务器端发回来的数据，若不相同就将If-None-Match的值设为true，返回状态为200，客户端重新获取服务器端返回的数据；</li>
+<li>当不存在Etag时。客户端还会通过If-Modified-Since头将先前服务器端发过来的最后修改时间戳发送给服务器，服务器端通过这个时间戳判断客户端的页面是否是最新的，如果不是最新的，则返回最新的内容，如果是最新的，则返回304，客户端继续使用本地缓存。</li>
+</ol>
+</li>
+</ol>
+<p><img src="http://oh54fkq1z.bkt.clouddn.com/huancun.png" alt=""></p>
+<h2 id="缓存更新与版本号"><a href="#缓存更新与版本号" class="headerlink" title="缓存更新与版本号"></a>缓存更新与版本号</h2><p>如果你已告诉访问者将某个 CSS 样式表缓存长达 24 小时 (max-age=86400)，但设计妹子刚刚又提交了一个您希望所有用户都能使用的更新。你该如何通知拥有现在“已过时”的 CSS 缓存副本的所有访问者更新其缓存？在不更改资源网址的情况下，您做不到！<br>浏览器缓存响应后，缓存的版本将一直使用到过期（由 max-age 或 expires 决定），或一直使用到由于某种其他原因从缓存中删除，例如用户清除了浏览器缓存。因此，构建网页时，不同的用户可能最终使用的是文件的不同版本；刚获取了资源的用户将使用新版本的响应，而缓存了早期（但仍有效）副本的用户将使用旧版本的响应。<br>所以，如何才能鱼和熊掌兼得：客户端缓存和快速更新？您可以在资源内容发生变化时更改它的网址，强制用户下载新响应。通常情况下，可以通过在文件名中嵌入文件版本号来实现 - 例如 style.x234dff.css。</p>
+<p>对于使用缓存及版本号文件如何部署优化问题，可以参考<a href="https://www.zhihu.com/question/20790576" target="_blank" rel="noopener"><font color="red">这篇文章</font></a>。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章有用，请随意打赏</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oh54fkq1z.bkt.clouddn.com/ap5wueeambrvxijw11.png" alt="叹希奇 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag"># http</a>
+          
+            <a href="/tags/缓存/" rel="tag"># 缓存</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017-06-23/怪异的margin-top百分比/" rel="next" title="怪异的margin-top百分比">
+                <i class="fa fa-chevron-left"></i> 怪异的margin-top百分比
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -425,8 +617,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -537,6 +738,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强缓存"><span class="nav-number">2.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Expires："><span class="nav-number">2.1.</span> <span class="nav-text">Expires：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-Control："><span class="nav-number">2.2.</span> <span class="nav-text">Cache-Control：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协商缓存"><span class="nav-number">3.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Last-Modify和If-Modify-Since："><span class="nav-number">3.1.</span> <span class="nav-text">Last-Modify和If-Modify-Since：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Etag和If-None-Match"><span class="nav-number">3.2.</span> <span class="nav-text">Etag和If-None-Match</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存处理流程"><span class="nav-number">4.</span> <span class="nav-text">缓存处理流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存更新与版本号"><span class="nav-number">5.</span> <span class="nav-text">缓存更新与版本号</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -689,6 +906,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
 
   
 
@@ -735,6 +956,30 @@
       </style>
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: decodeURI(window.location.pathname),
+            owner: 'a1314xu',
+            repo: 'a1314xu.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7134a938cfc8113917e98d5e68033141943e8c39',
+            
+                client_id: '3494131f2eb2d4bea7d1'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
