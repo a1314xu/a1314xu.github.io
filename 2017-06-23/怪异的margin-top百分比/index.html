@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="叹希奇的blog">
 <meta property="og:description" content="引子在我们日常前端开发中，特别一些新入门的前端，往往对margin/padding的百分比有错误的认知。最近面试时有遇到过这个问题，由于对这些小知识点的忽略而凭借自己的直观印象而回答错误，所以做下梳理与记录。 面试官问：假设一个div，宽400px，高200px，他有个子div的margin:10%，你来算下他的margin 的 top, right, bottom, left 是多少？ 当时觉得">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-19T06:25:48.637Z">
+<meta property="og:updated_time" content="2018-04-20T03:08:30.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怪异的margin-top百分比">
 <meta name="twitter:description" content="引子在我们日常前端开发中，特别一些新入门的前端，往往对margin/padding的百分比有错误的认知。最近面试时有遇到过这个问题，由于对这些小知识点的忽略而凭借自己的直观印象而回答错误，所以做下梳理与记录。 面试官问：假设一个div，宽400px，高200px，他有个子div的margin:10%，你来算下他的margin 的 top, right, bottom, left 是多少？ 当时觉得">
@@ -478,9 +478,9 @@
 <p>margin：百分比的计算基于生成框的包含块(父元素)的width（margin-top/bottom也是如此）。<br>padding同理</p>
 <p>对于margin-left和margin-right很好理解，但是为什么margin-top和margin-bootom也是相对于父元素width而不是height呢</p>
 <h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>对于margin/padding-top/bottom 的百分比之所以按照 width 计算，目前主要有这么几种解释</p>
-<h3 id="相对于height计算会引起无线循环"><a href="#相对于height计算会引起无线循环" class="headerlink" title="相对于height计算会引起无线循环"></a>相对于height计算会引起无线循环</h3><p>正常流中的大多数元素都会足够高以包含其后代元素（包括外边距），如果一个元素的上下外边距是父元素的height的百分数，就可能导致一个无限循环，父元素的height会增加，以适应后代元素上下外边距的增加，而相应的，上下外边距因为父元素height的增加也会增加，如此循环。</p>
+<h3 id="相对于height计算会引起无限循环"><a href="#相对于height计算会引起无限循环" class="headerlink" title="相对于height计算会引起无限循环"></a>相对于height计算会引起无限循环</h3><p>正常流中的大多数元素都会足够高以包含其后代元素（包括外边距），如果一个元素的上下外边距是父元素的height的百分数，就可能导致一个无限循环，父元素的height会增加，以适应后代元素上下外边距的增加，而相应的，上下外边距因为父元素height的增加也会增加，如此循环。</p>
 <h3 id="基于排版的需求"><a href="#基于排版的需求" class="headerlink" title="基于排版的需求"></a>基于排版的需求</h3><p>之所以按照同一个width来计算，是为了要横向和纵向2个方向都创建相同的margin/padding，如果它们的参照物不一致，那用百分比就无法得到垂直和水平一致的留白。</p>
-<p>至于为什么是height 而是width？这是因为CSS的基础需求是排版，因此水平和垂直方向其实并不是同等权重的，更精确的说，因为我们常见的书写方向是横排文字，我们排版的水平宽度是一致的，而垂直方向上是可以向下无限延展的。对于竖排文字则相关， margin/padding-* 都按照 height计算。</p>
+<p>至于为什么是width而不是height？这是因为CSS的基础需求是排版，因此水平和垂直方向其实并不是同等权重的，更精确的说，因为我们常见的书写方向是横排文字，我们排版的水平宽度是一致的，而垂直方向上是可以向下无限延展的。对于竖排文字则相关， margin/padding-* 都按照 height计算。</p>
 <p>对于受书写模式或者说排版方向影响还有一些其他的特性，比如说传统横排时，两个块状盒子margin在垂直方向上的 collapse（合并），段落间的空白进行 collapse 是常见和方便的。此时对于竖排，则是margin在水平方向上的collapse（合并）。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.zhihu.com/question/20983035/answer/16801491" target="_blank" rel="noopener">CSS中margin-top/bottom(padding-top/bottom)百分比为何以最近的块级祖先元素的宽度而不是高度作计算？</a></p>
 
@@ -741,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">2.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHY"><span class="nav-number">3.</span> <span class="nav-text">WHY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相对于height计算会引起无线循环"><span class="nav-number">3.1.</span> <span class="nav-text">相对于height计算会引起无线循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于排版的需求"><span class="nav-number">3.2.</span> <span class="nav-text">基于排版的需求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">2.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHY"><span class="nav-number">3.</span> <span class="nav-text">WHY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相对于height计算会引起无限循环"><span class="nav-number">3.1.</span> <span class="nav-text">相对于height计算会引起无限循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于排版的需求"><span class="nav-number">3.2.</span> <span class="nav-text">基于排版的需求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
